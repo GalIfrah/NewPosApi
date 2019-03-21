@@ -94,6 +94,35 @@ Failed:
 """
 
 
+def healthy(bid, station_id):
+
+    request_params = {
+
+        "BID": bid,
+        "StationID": station_id,
+
+    }
+
+    response = requests.post(config['POS_ENDPOINT'] + '/api/healthy', params=request_params)
+
+    response_object = response.json()
+
+    return response_object
+
+
 """
-cxvcvxcvx
+Response:
+
+                {
+                    "Success": true
+                }
+
+Failed:
+
+                {
+                    "Success": false,
+                    "ReturnString": "Thanks for asking",
+                    "ErrorCode": 0
+                }
+
 """
